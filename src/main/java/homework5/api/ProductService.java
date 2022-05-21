@@ -8,13 +8,13 @@ import retrofit2.http.*;
 public interface ProductService {
 
     @POST("products")
-    Call<Product> createProduct(@Body Product createProductRequest);
+    Call<Product> createProduct(@Body Product createProductRequestPOST);
 
     @DELETE("products/{id}")
     Call<ResponseBody> deleteProduct(@Path("id") int id);
 
     @PUT("products")
-    Call<Product> modifyProduct(@Body Product modifyProductRequest);
+    Call<Product> modifyProduct(@Body Product modifyProductRequestPOST);
 
     @GET("products/{id}")
     Call<Product> getProductById(@Path("id") int id);

@@ -23,13 +23,16 @@ public class GetCategoryTest {
     @SneakyThrows
     @Test
     void getCategoryByIdPositiveTest() {
-        Response<GetCategoryResponse> response = categoryService.getCategory(2).execute();
+        Response<GetCategoryResponse> response = categoryService
+                .getCategory(2)
+                .execute();
 
         assertThat(response.isSuccessful(), CoreMatchers.is(true));
         assertThat(response.body().getId(), equalTo(2));
         assertThat(response.body().getTitle(), equalTo("Electronic"));
         response.body().getProducts().forEach(product ->
                 assertThat(product.getCategoryTitle(), equalTo("Electronic")));
+        System.err.println("The Category with Id-2 is exist");
 
     }
 
